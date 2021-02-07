@@ -37,7 +37,25 @@ const HomeStyles = styled.div`
     display: grid;
     grid-gap: 2rem;
     @media (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+      grid-gap: 6rem;
       grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .product__image {
+    border: 2px solid ${({ theme }) => theme.color.primary};
+    padding: 1rem;
+  }
+
+  .product .gatsby-image-wrapper {
+    transform: scale(1);
+    transition: transform 0.2s;
+  }
+  .product:hover .gatsby-image-wrapper {
+    @media (min-width: ${({ theme }) => theme.breakpoint.tablet}) {
+      &:hover {
+        transform: scale(1.025);
+      }
     }
   }
 `;
@@ -51,7 +69,18 @@ export default function HomePage({ data }) {
           <h1>BLONDIES BROWNIES</h1>
           <p className="established">Established 2020</p>
           <div className="products">
-            <Img fluid={data.brownie.childImageSharp.fluid} alt="brownie" />
+            <div className="product">
+              <h2>Beautiful Brownies</h2>
+              <div className="product__image">
+                <Img fluid={data.brownie.childImageSharp.fluid} alt="brownie" />
+              </div>
+            </div>
+            <div className="product">
+              <h2>Lucky Lemon Drizzle</h2>
+              <div className="product__image">
+                <Img fluid={data.lemon.childImageSharp.fluid} alt="lemon" />
+              </div>
+            </div>
           </div>
         </div>
       </HomeStyles>
@@ -62,6 +91,13 @@ export default function HomePage({ data }) {
 export const query = graphql`
   query {
     brownie: file(relativePath: { eq: "images/brownies.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 960, maxHeight: 960) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    lemon: file(relativePath: { eq: "images/lemon.jpeg" }) {
       childImageSharp {
         fluid(maxWidth: 960, maxHeight: 960) {
           ...GatsbyImageSharpFluid

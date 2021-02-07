@@ -6,7 +6,8 @@ const typography = css`
     font-size: ${({ theme }) => theme.font.base};
   }
 
-  h1 {
+  h1,
+  h2 {
     font-weight: ${({ theme }) => theme.font.weight.light};
   }
 `;

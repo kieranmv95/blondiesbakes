@@ -2,6 +2,7 @@ export default {
   color: {
     background: 'white',
     text: 'black',
+    primary: 'black',
   },
   font: {
     base: '16px',
