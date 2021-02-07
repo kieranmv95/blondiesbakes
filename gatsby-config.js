@@ -8,7 +8,7 @@ export default {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `${__dirname}/assets`,
+        path: `./assets`,
       },
     },
     `gatsby-plugin-sharp`,
