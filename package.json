@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "cross-env NODE_OPTIONS=\"-r esm\" gatsby develop",
+    "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
     "start": "npm run develop"
   },
   "eslintConfig": {
