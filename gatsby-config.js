@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   siteMetadata: {
     title: 'Blondies Bakes',
     description: '',
@@ -8,7 +8,7 @@ export default {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `./assets`,
+        path: `${__dirname}/assets`,
       },
     },
     `gatsby-plugin-sharp`,
